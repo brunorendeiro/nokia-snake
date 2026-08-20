@@ -11,7 +11,7 @@ import {
   type Point,
 } from './lib/game'
 import { detectLocale, locales, ui, type Locale } from './i18n'
-import { getStoredConsent, loadAnalytics } from './analytics'
+import { getStoredConsent, loadAnalytics, loadAds } from './analytics'
 import CookieConsent from './CookieConsent'
 
 type Status = 'ready' | 'playing' | 'paused' | 'over'
@@ -42,7 +42,10 @@ export default function App() {
   }, [locale])
 
   useEffect(() => {
-    if (getStoredConsent() === 'granted') loadAnalytics()
+    if (getStoredConsent() === 'granted') {
+      loadAnalytics()
+      loadAds()
+    }
   }, [])
 
   useEffect(() => {
