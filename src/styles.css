@@ -360,6 +360,26 @@ footer a {
   font-weight: 700;
 }
 
+.ad-slot {
+  width: 100%;
+  max-width: 420px;
+  margin: 4px 0;
+  padding: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.ad-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-soft);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
 @media (max-width: 380px) {
   .dpad {
     grid-template-columns: 48px 48px 48px;

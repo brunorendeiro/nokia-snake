@@ -40,8 +40,13 @@ export function loadAds() {
   script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4561414438757131`
   document.head.appendChild(script)
 
+  // Auto ads (enable_page_level_ads) stay off: this is a single-screen game app, and
+  // letting Google place ads anywhere would put them over the thin, interactive game
+  // screen, which is exactly what triggered the AdSense "low value content" policy
+  // violation. We only load the base script here; individual manual ad units (AdSlot)
+  // are pushed separately, and only on screens with substantial real content.
   window.adsbygoogle = window.adsbygoogle || []
-  window.adsbygoogle.push({ google_ad_client: 'ca-pub-4561414438757131', enable_page_level_ads: true })
+  window.adsbygoogle.push({ google_ad_client: 'ca-pub-4561414438757131' })
 }
 
 export function setConsent(value: Consent) {
